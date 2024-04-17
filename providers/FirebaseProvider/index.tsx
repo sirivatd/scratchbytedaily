@@ -18,7 +18,6 @@ const FirebaseProvider = ({ children }) => {
 
 export const useFirebase = () => {
   const database = useContext(FirebaseContext);
-
   if (!database) {
     throw new Error("Firebase instance not initialized");
   }
