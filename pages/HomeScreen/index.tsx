@@ -1,26 +1,47 @@
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ref, set, onValue } from "firebase/database";
 import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
 import Icon from "react-native-vector-icons/Ionicons";
 import LottieView from "lottie-react-native";
+import * as ScreenOrientation from "expo-screen-orientation";
 
 const HomeScreen = ({ navigation }) => {
+    const [orientation, setOrientation] = useState(1);
+
   const database = useFirebase();
   const writeTestData = () => {
     const dbRef = ref(database, "test-data");
     set(dbRef, { value: "hopefully i fixed that cycle issue" });
   };
 
+  const lockOrientation = async () => {
+    console.log("locking orientation");
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.PORTRAIT_UP
+    );
+    const o = await ScreenOrientation.getOrientationAsync();
+    setOrientation(o);
+  };
+
+  useEffect(() => {
+    lockOrientation();
+  }, []);
+
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <LottieView
-        style={{ width: "100%", height: "100%" }}
+        style={{ flex: 1}}
         source={require("../../assets/animations/NightBackground.json")}
         autoPlay
         loop
         resizeMode="cover"
       />
+      <View style={{ position: "absolute", top: 250, left: 0, right: 0, bottom: 0, backgroundColor: 'red' }}>
+      <Text>Locked Screen orientation: {orientation}</Text>
+
+    </View>
     </View>
   );
 };

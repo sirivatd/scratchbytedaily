@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { createTamagui, TamaguiProvider } from "tamagui";
 import { config } from "@tamagui/config/v3";
 import FirebaseProvider from "./providers/FirebaseProvider";
+import * as ScreenOrientation from "expo-screen-orientation";
 
 // Page naviga†ion setup
 import { NavigationContainer } from "@react-navigation/native";
@@ -24,20 +26,32 @@ declare module "@tamagui/core" {
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  const lockOrientation = async () => {
+    console.log("locking orientation");
+    await ScreenOrientation.lockAsync(
+      ScreenOrientation.OrientationLock.PORTRAIT_UP
+    );
+  };
+
+  useEffect(() => {
+    lockOrientation();
+  }, []);
+
   return (
     <TamaguiProvider config={tamaguiConfig}>
       <NavigationContainer>
         <FirebaseProvider>
           <Stack.Navigator>
             <Stack.Screen
+            
               name="Why Splash no work?"
               component={SplashScreen}
-              options={{ title: "Please work lottie" }}
+              options={{ title: "Please work lottie", headerShown: false }}
             />
             <Stack.Screen
               name="Home"
               component={HomeScreen}
-              options={{ title: "Welcome" }}
+              options={{ title: "Welcome", headerShown: false }}
             />
             <Stack.Screen name="LegalDisclosures" component={TestButton} />
             <Stack.Screen name="Profile" component={MyProfile} />
