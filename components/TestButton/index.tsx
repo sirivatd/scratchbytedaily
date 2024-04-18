@@ -1,5 +1,6 @@
-import { StyleSheet, Button, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { ref, set, onValue } from "firebase/database";
+import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
 
 const TestButton = () => {
@@ -12,13 +13,14 @@ const TestButton = () => {
   return (
     <View style={styles.container}>
       <Text>CALIBRATION</Text>
-      <Text>by fake software</Text>
+      <Text>Bytequest</Text>
       <Button
         onPress={writeTestData}
-        title="Test Firebase db integration"
         color="red"
         accessibilityLabel="Add test data for debugging button"
-      />
+      >
+        Test paper ui integration
+      </Button>
     </View>
   );
 };
