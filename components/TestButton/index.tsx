@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ref, set, onValue } from "firebase/database";
 import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const TestButton = () => {
   const database = useFirebase();
@@ -12,6 +13,7 @@ const TestButton = () => {
 
   return (
     <View style={styles.container}>
+      <Icon name="rocket" size={30} color="#4F8EF7" />
       <Text>CALIBRATION</Text>
       <Text>Bytequest</Text>
       <Button
