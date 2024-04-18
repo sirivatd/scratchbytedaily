@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ref, set, onValue } from "firebase/database";
 import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/Ionicons";
 import LottieView from "lottie-react-native";
 
 const HomeScreen = ({ navigation }) => {
@@ -14,11 +14,13 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View>
-        <LottieView
-            source={require("../../assets/animations/NightBackground.json")}
-            autoPlay
-            loop
-        />
+      <LottieView
+        style={{ width: "100%", height: "100%" }}
+        source={require("../../assets/animations/NightBackground.json")}
+        autoPlay
+        loop
+        resizeMode="cover"
+      />
     </View>
   );
 };

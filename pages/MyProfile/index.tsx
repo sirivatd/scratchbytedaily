@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ref, set, onValue } from "firebase/database";
 import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/Ionicons";
 
 const MyProfile = ({ navigation }) => {
   const database = useFirebase();
@@ -17,7 +17,7 @@ const MyProfile = ({ navigation }) => {
       <Text>CALIBRATION</Text>
       <Text>Bytequest</Text>
       <Button
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate("Home")}
         color="red"
         accessibilityLabel="Add test data for debugging button"
       >
