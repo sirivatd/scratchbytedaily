@@ -1,8 +1,4 @@
-import { createContext, useContext } from "react";
-import { StyleSheet, Button, Text } from "react-native";
-
-import { ref, set, onValue, getDatabase } from "firebase/database";
-import { createTamagui, TamaguiProvider, View } from 'tamagui';
+import { createTamagui, TamaguiProvider } from 'tamagui';
 import { config } from '@tamagui/config/v3';
 import FirebaseProvider from "./providers/FirebaseProvider";
 
@@ -36,9 +32,11 @@ const App = () => {
           component={TestButton}
           options={{title: 'Welcome'}}
         />
+        <Stack.Screen name="LegalDisclosures" component={MyProfile} />
         <Stack.Screen name="Profile" component={MyProfile} />
         <Stack.Screen name="Settings" component={MyProfile} />
         <Stack.Screen name="Trophies" component={MyProfile} />
+        <Stack.Screen name="GlobalChat" component={MyProfile} />
         <Stack.Screen name="GameCenter" component={MyProfile} />
         <Stack.Screen name="Inventory" component={MyProfile} />
         <Stack.Screen name="Store" component={MyProfile} />
