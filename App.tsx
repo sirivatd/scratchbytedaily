@@ -46,7 +46,7 @@ const App = () => {
             
               name="Why Splash no work?"
               component={SplashScreen}
-              options={{ title: "Please work lottie", headerShown: false }}
+              options={{ title: "Please work lottie", headerShown: false, orientation: 'portrait_up' }}
             />
             <Stack.Screen
               name="Home"

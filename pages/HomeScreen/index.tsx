@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { ref, set, onValue } from "firebase/database";
 import { Button } from "tamagui";
 import { useFirebase } from "./../../providers/FirebaseProvider";
@@ -29,21 +29,24 @@ const HomeScreen = ({ navigation }) => {
     lockOrientation();
   }, []);
 
-  return (
+return (
     <View style={{ flex: 1 }}>
-      <LottieView
-        style={{ flex: 1}}
-        source={require("../../assets/animations/NightBackground.json")}
-        autoPlay
-        loop
-        resizeMode="cover"
-      />
-      <View style={{ position: "absolute", top: 250, left: 0, right: 0, bottom: 0, backgroundColor: 'red' }}>
-      <Text>Locked Screen orientation: {orientation}</Text>
-
+        <LottieView
+            style={{ flex: 1 }}
+            source={require("../../assets/animations/NightBackground.json")}
+            autoPlay
+            loop
+            speed={0.25}
+            resizeMode="cover"
+        />
+        <View style={{ position: "absolute", height: 200, left: 0, right: 0, top: '10%', backgroundColor: 'red', flex: 1, paddingLeft: 10, paddingRight: 10 }}>
+            <Image
+                source={require("../../assets/img/calibration_full_logo_white.png")}
+                style={{ width: '100%', flex: 1, resizeMode: 'contain'}}
+            />
+        </View>
     </View>
-    </View>
-  );
+);
 };
 
 const styles = StyleSheet.create({
