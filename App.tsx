@@ -7,6 +7,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Local imports
+import HomeScreen from './pages/HomeScreen';
+import SplashScreen from './pages/SplashScreen';
 import TestButton from "./components/TestButton";
 import MyProfile from "./pages/MyProfile";
 
@@ -28,11 +30,16 @@ const App = () => {
     <FirebaseProvider>
       <Stack.Navigator>
       <Stack.Screen
+          name="Why Splash no work?"
+          component={SplashScreen}
+          options={{title: 'Please work lottie'}}
+        />
+      <Stack.Screen
           name="Home"
-          component={TestButton}
+          component={HomeScreen}
           options={{title: 'Welcome'}}
         />
-        <Stack.Screen name="LegalDisclosures" component={MyProfile} />
+        <Stack.Screen name="LegalDisclosures" component={TestButton} />
         <Stack.Screen name="Profile" component={MyProfile} />
         <Stack.Screen name="Settings" component={MyProfile} />
         <Stack.Screen name="Trophies" component={MyProfile} />
