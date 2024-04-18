@@ -20,7 +20,7 @@ const SplashScreen = ({ navigation }) => {
         autoPlay
         loop={false}
         resizeMode="cover"
-        onAnimationFinish={() => navigation.replace("Home")}
+        onAnimationFinish={() => navigation.navigate("HomeTabScreen")}
       />
     </View>
   );

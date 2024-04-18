@@ -39,7 +39,7 @@ return (
             speed={0.25}
             resizeMode="cover"
         />
-        <View style={{ position: "absolute", height: 200, left: 0, right: 0, top: '10%', backgroundColor: 'red', flex: 1, paddingLeft: 10, paddingRight: 10 }}>
+        <View style={{ position: "absolute", height: 200, left: 0, right: 0, top: '10%', flex: 1, paddingLeft: 10, paddingRight: 10 }}>
             <Image
                 source={require("../../assets/img/calibration_full_logo_white.png")}
                 style={{ width: '100%', flex: 1, resizeMode: 'contain'}}

@@ -7,6 +7,7 @@ import * as ScreenOrientation from "expo-screen-orientation";
 // Page naviga†ion setup
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Local imports
 import HomeScreen from "./pages/HomeScreen";
@@ -24,6 +25,7 @@ declare module "@tamagui/core" {
 }
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   const lockOrientation = async () => {
@@ -37,30 +39,40 @@ const App = () => {
     lockOrientation();
   }, []);
 
+  const HomeTabScreen = () => {
+    return (
+      <Tab.Navigator>
+         <Tab.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
+            <Tab.Screen name="Inventory" component={MyProfile} />
+            <Tab.Screen name="Store" component={MyProfile} />
+            <Tab.Screen name="Profile" component={MyProfile} />
+      </Tab.Navigator>
+    );
+  }
+
   return (
     <TamaguiProvider config={tamaguiConfig}>
       <NavigationContainer>
         <FirebaseProvider>
           <Stack.Navigator>
-            <Stack.Screen
-            
-              name="Why Splash no work?"
+            <Stack.Screen   
+              name="Splash"
               component={SplashScreen}
-              options={{ title: "Please work lottie", headerShown: false, orientation: 'portrait_up' }}
+              options={{ headerShown: false, orientation: 'portrait_up' }}
             />
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
+         <Stack.Screen
+              name="HomeTabScreen"
+              component={HomeTabScreen}
               options={{ title: "Welcome", headerShown: false }}
             />
             <Stack.Screen name="LegalDisclosures" component={TestButton} />
-            <Stack.Screen name="Profile" component={MyProfile} />
             <Stack.Screen name="Settings" component={MyProfile} />
             <Stack.Screen name="Trophies" component={MyProfile} />
-            <Stack.Screen name="GlobalChat" component={MyProfile} />
             <Stack.Screen name="GameCenter" component={MyProfile} />
-            <Stack.Screen name="Inventory" component={MyProfile} />
-            <Stack.Screen name="Store" component={MyProfile} />
             <Stack.Screen name="OpenPack" component={MyProfile} />
             <Stack.Screen name="Tutorial" component={MyProfile} />
 
