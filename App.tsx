@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createTamagui, TamaguiProvider } from "tamagui";
+import { createTamagui, TamaguiProvider, View } from "tamagui";
 import { config } from "@tamagui/config/v3";
 import FirebaseProvider from "./providers/FirebaseProvider";
 import * as ScreenOrientation from "expo-screen-orientation";
@@ -80,22 +80,6 @@ const App = () => {
               component={HomeTabScreen}
               options={{ title: "Welcome", headerShown: false }}
             />
-            <Stack.Screen name="LegalDisclosures" component={TestButton} />
-            <Stack.Screen name="Settings" component={SettingsScreen} />
-            <Stack.Screen name="Trophies" component={MyProfile} />
-            <Stack.Screen name="GameCenter" component={MyProfile} />
-            <Stack.Screen name="OpenPack" component={MyProfile} />
-            <Stack.Screen name="Tutorial" component={MyProfile} />
-
-            {/* Screens required for gameplay */}
-            {/* TODO: Maybe extract these into their own stack? */}
-            {/* These screens will be different based on whether coop or online was selected */}
-            <Stack.Screen name="Lobby" component={MyProfile} />
-            <Stack.Screen name="PromptGeneration" component={MyProfile} />
-            <Stack.Screen name="OnlineGameRoom" component={MyProfile} />
-            <Stack.Screen name="GameReplay" component={MyProfile} />
-            <Stack.Screen name="GameResults" component={MyProfile} />
-            <Stack.Screen name="GameRewards" component={MyProfile} />
           </Stack.Navigator>
         </FirebaseProvider>
       </NavigationContainer>
