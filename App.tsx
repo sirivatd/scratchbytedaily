@@ -7,11 +7,13 @@ import * as ScreenOrientation from "expo-screen-orientation";
 // Page naviga†ion setup
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 // Local imports
 import HomeScreen from "./pages/HomeScreen";
 import SplashScreen from "./pages/SplashScreen";
+import SettingsScreen from "./pages/SettingsScreen";
 import TestButton from "./components/TestButton";
 import MyProfile from "./pages/MyProfile";
 
@@ -25,13 +27,13 @@ declare module "@tamagui/core" {
 }
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const App = () => {
   const lockOrientation = async () => {
     console.log("locking orientation");
     await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.PORTRAIT_UP
+      ScreenOrientation.OrientationLock.PORTRAIT_UP,
     );
   };
 
@@ -41,36 +43,44 @@ const App = () => {
 
   const HomeTabScreen = () => {
     return (
-      <Tab.Navigator>
-         <Tab.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ headerShown: false }}
-            />
-            <Tab.Screen name="Inventory" component={MyProfile} />
-            <Tab.Screen name="Store" component={MyProfile} />
-            <Tab.Screen name="Profile" component={MyProfile} />
+      <Tab.Navigator
+        initialRouteName="Home"
+        backBehavior="none"
+        labeled
+        activeColor="red"
+        barStyle={{ backgroundColor: "black", paddingBottom: 48 }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen name="Rewards" component={MyProfile} />
       </Tab.Navigator>
     );
-  }
+  };
 
   return (
     <TamaguiProvider config={tamaguiConfig}>
       <NavigationContainer>
         <FirebaseProvider>
           <Stack.Navigator>
-            <Stack.Screen   
+            <Stack.Screen
               name="Splash"
               component={SplashScreen}
-              options={{ headerShown: false, orientation: 'portrait_up' }}
+              options={{ headerShown: false, orientation: "portrait_up" }}
             />
-         <Stack.Screen
+            <Stack.Screen
               name="HomeTabScreen"
               component={HomeTabScreen}
               options={{ title: "Welcome", headerShown: false }}
             />
             <Stack.Screen name="LegalDisclosures" component={TestButton} />
-            <Stack.Screen name="Settings" component={MyProfile} />
+            <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="Trophies" component={MyProfile} />
             <Stack.Screen name="GameCenter" component={MyProfile} />
             <Stack.Screen name="OpenPack" component={MyProfile} />

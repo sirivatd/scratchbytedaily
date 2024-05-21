@@ -1,21 +1,21 @@
 {
-    "expo": {
-      "ios": {
-        "requiresFullScreen": true,
-        "supportsTablet": true,
-        "bundleIdentifier": "com.bytequest.calibration",
-        "ITSAppUsesNonExemptEncryption": "NO",
-        "UISupportedInterfaceOrientations": [
-          "UIInterfaceOrientationLandscapeRight",
-          "UIInterfaceOrientationLandscapeLeft",
-          "UIInterfaceOrientationPortrait"
-        ],
-        "UISupportedInterfaceOrientations~ipad": [
-          "UIInterfaceOrientationLandscapeRight",
-          "UIInterfaceOrientationLandscapeLeft",
-          "UIDeviceOrientationPortrait",
-          "UIDeviceOrientationPortraitUpsideDown"
-        ]
-      }
+  "expo": {
+    "ios": {
+      "requiresFullScreen": true,
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bytequest.calibration",
+      "ITSAppUsesNonExemptEncryption": "NO",
+      "UISupportedInterfaceOrientations": [
+        "UIInterfaceOrientationLandscapeRight",
+        "UIInterfaceOrientationLandscapeLeft",
+        "UIInterfaceOrientationPortrait"
+      ],
+      "UISupportedInterfaceOrientations~ipad": [
+        "UIInterfaceOrientationLandscapeRight",
+        "UIInterfaceOrientationLandscapeLeft",
+        "UIDeviceOrientationPortrait",
+        "UIDeviceOrientationPortraitUpsideDown"
+      ]
     }
   }
+}
