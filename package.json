@@ -25,7 +25,11 @@
     "react-native-vector-icons": "^10.0.3",
     "react-native-web": "~0.19.6",
     "tamagui": "^1.98.1",
-    "react-native-gesture-handler": "~2.16.1"
+    "react-native-gesture-handler": "~2.16.1",
+    "expo-image": "~1.12.9",
+    "expo-linear-gradient": "~13.0.2",
+    "@react-native-masked-view/masked-view": "0.3.1",
+    "react-native-svg": "15.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

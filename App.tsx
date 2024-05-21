@@ -16,7 +16,7 @@ import SplashScreen from "./pages/SplashScreen";
 import SettingsScreen from "./pages/SettingsScreen";
 import TestButton from "./components/TestButton";
 import MyProfile from "./pages/MyProfile";
-
+import RewardsScreen from "./pages/RewardsScreen";
 // you usually export this from a tamagui.config.ts file
 const tamaguiConfig = createTamagui(config);
 
@@ -47,7 +47,7 @@ const App = () => {
         initialRouteName="Home"
         backBehavior="none"
         labeled
-        activeColor="red"
+        activeColor="white"
         barStyle={{ backgroundColor: "black", paddingBottom: 48 }}
       >
         <Tab.Screen
@@ -55,12 +55,28 @@ const App = () => {
           component={HomeScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
+              <MaterialCommunityIcons name="home" color={'black'} size={26} />
             ),
           }}
         />
-        <Tab.Screen name="Rewards" component={MyProfile} />
-        <Tab.Screen name="Settings" component={MyProfile} />
+        <Tab.Screen
+          name="Rewards"
+          component={RewardsScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="hand-coin" color={'black'} size={26} />
+            )
+          }}
+        />
+        <Tab.Screen
+          name="Account"
+          component={MyProfile}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={'black'} size={26} />
+            )
+          }}
+        />
       </Tab.Navigator>
     );
   };
