@@ -1,4 +1,6 @@
-# TypeScript Example
+# ByteScratch - Daily!
+## Lets make RTO fun.
+### Built for TikTok USDS Hackathon 2024
 
 <p>
   <!-- iOS -->
