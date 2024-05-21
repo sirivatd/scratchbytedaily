@@ -47,7 +47,7 @@ const App = () => {
         initialRouteName="Home"
         backBehavior="none"
         labeled
-        activeColor="white"
+        activeColor="#1A708E"
         barStyle={{ backgroundColor: "black", paddingBottom: 48 }}
       >
         <Tab.Screen
@@ -55,7 +55,7 @@ const App = () => {
           component={HomeScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={'black'} size={26} />
+              <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
           }}
         />
@@ -64,7 +64,7 @@ const App = () => {
           component={RewardsScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="hand-coin" color={'black'} size={26} />
+              <MaterialCommunityIcons name="hand-coin" color={color} size={26} />
             )
           }}
         />
@@ -73,7 +73,7 @@ const App = () => {
           component={MyProfile}
           options={{
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={'black'} size={26} />
+              <MaterialCommunityIcons name="account" color={color} size={26} />
             )
           }}
         />
