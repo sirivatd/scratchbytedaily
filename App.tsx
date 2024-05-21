@@ -60,6 +60,7 @@ const App = () => {
           }}
         />
         <Tab.Screen name="Rewards" component={MyProfile} />
+        <Tab.Screen name="Settings" component={MyProfile} />
       </Tab.Navigator>
     );
   };
